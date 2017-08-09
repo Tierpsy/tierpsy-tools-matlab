@@ -10,7 +10,7 @@ function [featMat, wormInds, featNames] = featStruct2Mat(fileName, minLength, fe
 %               to be included.
 %   featFlag  - logical vector of length 726 indicating whether each mean 
 %               feature is to be included. Mean feature table has 730
-%               entries, but first 3 are metadata not features.
+%               entries, but first 4 are metadata not features.
 % 
 % Output
 %   featMat   - a numTrajectories x numFeatures matrix of mean feature
