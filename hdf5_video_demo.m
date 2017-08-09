@@ -1,8 +1,12 @@
-% script to load frames from tracker videos in hdf5 format and correct for
-% stage motion
+% This script first loads frames from a single-worm tracker video created 
+% using WormTracker 2.0 that has been analysed using Tierpsy Tracker and 
+% saved as a masked video in hdf5 format.  Using the stage motion data
+% saved by the tracker, the script then does an approximate reconstruction
+% of the worm's motion on the plate and displays a video.
 
 % set the file name
-fileName = 'N2 on food L_2010_04_08__11_25_23___8___1.hdf5';
+fileName = ['./sample_single-worm_hdf5_videos/' ...
+    'N2 on food L_2010_04_08__11_25_23___8___1.hdf5'];
 
 % how many frames should be plotted?
 startFrame = 1;
@@ -61,7 +65,6 @@ for ii = startFrame:frameInterval:startFrame + frameNum - 1
     end
     
     imshow(J(1:ds:end, 1:ds:end), [])
-    %     hold on
     axis equal
     getframe;
 end
