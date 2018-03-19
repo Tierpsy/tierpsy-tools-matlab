@@ -27,7 +27,15 @@ if ~islogical(featFlag)
 end
 
 % load feature data
-featData = h5read(fileName, '/features_means');
+try
+    featData = h5read(fileName, '/features_means');
+catch
+    warning('Input file cannot be read. Possibly empty.')
+    featMat = [];
+    wormInds = [];
+    featNames = [];
+    return
+end
 
 % get worm indices
 wormInds = featData.worm_index;

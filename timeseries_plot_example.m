@@ -13,7 +13,7 @@
 
 
 % choose a file to analyse
-filename = ['./sample_multiworm_results/' ...
+filename = ['/Users/abrown/Andre/code/tierpsy_tools/sample_multiworm_results/' ...
     'N2_worms5_food1-10_Set1_Pos4_Ch5_02062017_115615_features.hdf5'];
 
 % get the HDF5 file info and display the top level dataset names. You can

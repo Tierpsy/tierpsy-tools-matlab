@@ -13,7 +13,7 @@
 
 
 % choose a file to analyse
-filename = ['./sample_multiworm_results/' ...
+filename = ['/Users/abrown/Andre/code/tierpsy_tools/sample_multiworm_results/' ...
     'MY16_worms5_food1-10_Set9_Pos4_Ch5_19052017_161053_features.hdf5'];
 
 % get the HDF5 file info and display the group with the skeletons. You can
@@ -55,12 +55,12 @@ c = [     0    0.4470    0.7410;
  
 figure
 % plot each of the tracks on one plot
-for ii = 1:numel(uniqueInds)
+for ii = 7:8%numel(uniqueInds)
     % get indices for current track
     currentInds = find(wormInds == uniqueInds(ii));
     
     % to avoid plotting too many skeletons, plot only every 10th time point
-    currentInds = currentInds(1:10:end);
+    currentInds = currentInds(1:1:end);
     
     % plot the skeletons of the current track
     plot(squeeze(skeletons(1, :, currentInds)), ...

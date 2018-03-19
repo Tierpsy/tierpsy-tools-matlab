@@ -18,8 +18,8 @@ ds = 2; % pixel downsample factor for movie
 plotGrid = true;
 
 % get the dimensions of the video
-fileInfo = hdf5info(fileName);
-dims = fileInfo.GroupHierarchy.Datasets(3).Dims;
+fileInfo = h5info(fileName);
+dims = fileInfo.Datasets(3).Dataspace.Size;
 
 % load the stage position coordinates to convert video frames to lab
 % coordinates
