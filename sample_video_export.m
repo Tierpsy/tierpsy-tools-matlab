@@ -14,10 +14,10 @@ lineplot = false;
 
 % set the directory name
 directoryVid = '/Users/abrown/Andre/wormVideos/CeNDR/hdf5-videos/';
-filenameVid = 'DL226_worms10_food1-10_Set9_Pos4_Ch4_19052017_161100.hdf5';
+filenameVid = 'N2H_Ch1_07102017_114638.hdf5';
 
 directoryFeat = '/Users/abrown/Andre/wormVideos/CeNDR/feature-files/';
-filenameFeat = 'DL226_worms10_food1-10_Set9_Pos4_Ch4_19052017_161100_featuresN.hdf5';
+filenameFeat = 'N2H_Ch1_07102017_114638_featuresN.hdf5';
 
 % get the dimensions of the video
 fileInfo = h5info([directoryVid, filenameVid]);
@@ -44,11 +44,11 @@ timeStamps = trajData.frame_number + 1;
 skelIds = trajData.skeleton_id + 1;
 
 % list of frame indices to be exported
-frameInds = 17450:17550; %2160:2180; %[844, 1274, 2244, 3694, 4694, 17484];
+frameInds = 15450:5:15550; %2160:2180; %[844, 1274, 2244, 3694, 4694, 17484];
 
 % initialise video
 vidObj = VideoWriter([directoryVid strrep(filenameVid, '.hdf5', '') ...
-    '_sample.mp4'], 'MPEG-4');
+    '_sample_5x.mp4'], 'MPEG-4');
 vidObj.Quality = 100;
 open(vidObj);
 
@@ -165,8 +165,12 @@ for ii = 1:numel(frameInds)
                 3*ones(size(B{jj}(:, 2))))) = 40;            
         end
         
-        % add frame to video
-        writeVideo(vidObj, frameRGB);
+        
+        % some frames have wrong size...
+        if size(frameRGB, 1) == 2048 && size(frameRGB, 2) == 2048
+            % add frame to video
+            writeVideo(vidObj, frameRGB(300:2048-300, 300:2048-300, :));
+        end
     end
 end
 
