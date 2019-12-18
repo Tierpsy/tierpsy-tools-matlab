@@ -13,11 +13,11 @@
 lineplot = false;
 
 % set the directory name
-directoryVid = '/Users/abrown/Andre/wormVideos/CeNDR/hdf5-videos/';
-filenameVid = 'N2H_Ch1_07102017_114638.hdf5';
+directoryVid = '/Users/abrown/Andre/_behavgenom/CeNDR/hdf5-videos/';
+filenameVid = 'DL226_worms10_food1-10_Set9_Pos4_Ch4_19052017_161100.hdf5';
 
-directoryFeat = '/Users/abrown/Andre/wormVideos/CeNDR/feature-files/';
-filenameFeat = 'N2H_Ch1_07102017_114638_featuresN.hdf5';
+directoryFeat = '/Users/abrown/Andre/_behavgenom/CeNDR/feature-files/';
+filenameFeat = 'DL226_worms10_food1-10_Set9_Pos4_Ch4_19052017_161100_featuresN.hdf5';
 
 % get the dimensions of the video
 fileInfo = h5info([directoryVid, filenameVid]);
@@ -44,7 +44,7 @@ timeStamps = trajData.frame_number + 1;
 skelIds = trajData.skeleton_id + 1;
 
 % list of frame indices to be exported
-frameInds = 15450:5:15550; %2160:2180; %[844, 1274, 2244, 3694, 4694, 17484];
+frameInds = 5000:5:6000;
 
 % initialise video
 vidObj = VideoWriter([directoryVid strrep(filenameVid, '.hdf5', '') ...
